@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+  body { @apply bg-white text-[#151517] font-sans antialiased; }
+  ::selection { background: #0071E3; color: #fff; }
+}
+
+/* Entrada das seções ao rolar */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1);
+}
+[data-reveal].is-in { opacity: 1; transform: none; }
+
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { opacity: 1; transform: none; transition: none; }
+}
+
